@@ -1,0 +1,31 @@
+component: http
+name: http-express-kaorN9fyw
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+  faas:
+    framework: express
+    name: '${name}'
+    runtime: Nodejs12.16
+    eip: false
+    timeout: 3
+    memorySize: 512
+    tags: []
+    layers:
+      - name: '${output:${stage}:${app}:longlonglong-layer.name}'
+        version: '${output:${stage}:${app}:longlonglong-layer.version}'
+  apigw:
+    protocols:
+      - http
+      - https
+    timeout: 60
+    environment: release
+    customDomains: []
+  region: ap-shanghai
+  isAutoCiDeploy: false
+  static: {}
+org: '1256370437'
+app: longlonglong
+stage: dev
