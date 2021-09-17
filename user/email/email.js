@@ -10,7 +10,7 @@ var transporter = nodemailer.createTransport({
     }
 });
 module.exports = () => {
-    schedule.scheduleJob('20 5 * * *', function () {
+    schedule.scheduleJob('25 10 * * *', function () {
         let nowDate = new Date();
         let gap = parseInt((Math.round(new Date()) - Date.parse('2020-02-10')) / 86400000)
         let dateString = `今天是${nowDate.getFullYear()}年${nowDate.getMonth() + 1}月${nowDate.getDate()}日 星期${nowDate.getDay() ? nowDate.getDay() : '天'} 已经认识了${gap}天 `
